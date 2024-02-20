@@ -10,7 +10,7 @@ namespace FintieStateMachine
 
         void Update()
         {
-            currentState?.Update();
+            currentState?.Update(Time.deltaTime);
         }
 
         public void SetCurrentState(State state)
