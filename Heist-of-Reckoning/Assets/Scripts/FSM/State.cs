@@ -7,9 +7,15 @@ namespace FintieStateMachine
 {
     public abstract class State
     {
+        protected FiniteStateMachine stateMachine;
+        public State(FiniteStateMachine stateMachine)
+        {
+            this.stateMachine = stateMachine;
+        }
+
         public abstract void Enter();
 
-        public abstract void Update();
+        public abstract void Update(float deltaTime);
 
         public abstract void Exit();
     }
