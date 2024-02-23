@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PlayerAnimations;
+
 namespace FintieStateMachine
 {
     public class PlayerGroundedState : PlayerState
@@ -34,7 +36,7 @@ namespace FintieStateMachine
 
             if (moveValue == Vector2.zero)
             {
-                stateMachine.Animator.SetFloat(stateMachine.PlayerAnimatorHashes.GetHash(PlayerHashes.Speed), 0, dampTime, deltaTime);
+                stateMachine.Animator.SetFloat(stateMachine.PlayerAnimatorHashes.GetHash(PlayerHashes.Speed), GroundedStates.Idle, dampTime, deltaTime);
                 return;
             }
 
@@ -43,7 +45,7 @@ namespace FintieStateMachine
 
             Vector3 movement = (forward * moveValue.y + right * moveValue.x).normalized;
 
-            stateMachine.Animator.SetFloat(stateMachine.PlayerAnimatorHashes.GetHash(PlayerHashes.Speed), 0.5f, dampTime, deltaTime);
+            stateMachine.Animator.SetFloat(stateMachine.PlayerAnimatorHashes.GetHash(PlayerHashes.Speed), GroundedStates.Walk, dampTime, deltaTime);
 
             if (movement != Vector3.zero)
             {
