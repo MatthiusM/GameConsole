@@ -2,6 +2,8 @@ using FintieStateMachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PlayerAnimations;
+
 namespace FintieStateMachine
 {    public class PlayerStateMachine : FiniteStateMachine
     {

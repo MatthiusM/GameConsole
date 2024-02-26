@@ -1,13 +1,25 @@
+using FintieStateMachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PlayerHashes
+namespace PlayerAnimations
 {
-    Speed
+    public enum PlayerParameters
+    {
+        Speed
+    }
+
+    public enum PlayerStates
+    {
+        Grounded
+    }
+
+    public class PlayerAnimatorHashes : AnimatorHashes
+    {
+        public PlayerAnimatorHashes() : base(typeof(PlayerStates), typeof(PlayerParameters))
+        {
+        }
+    }
 }
 
-public class PlayerAnimatorHashes : AnimatorHashes<PlayerHashes>
-{
-
-}

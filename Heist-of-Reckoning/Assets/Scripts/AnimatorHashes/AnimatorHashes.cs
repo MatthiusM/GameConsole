@@ -1,22 +1,34 @@
-using System;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public abstract class AnimatorHashes<T> where T : Enum
+public abstract class AnimatorHashes
 {
-    private readonly Dictionary<T, int> hashes = new();
+    private readonly Dictionary<Type, Dictionary<Enum, int>> allHashes = new();
 
-    protected AnimatorHashes()
+    protected AnimatorHashes(params Type[] enumTypes)
     {
-        foreach (T val in Enum.GetValues(typeof(T)))
+        foreach (var enumType in enumTypes)
         {
-            hashes[val] = Animator.StringToHash(val.ToString());
+            if (!enumType.IsEnum)
+            {
+                Debug.LogError($"{enumType} is not an enum.");
+                continue;
+            }
+
+            var enumDict = new Dictionary<Enum, int>();
+            foreach (Enum val in Enum.GetValues(enumType))
+            {
+                enumDict[val] = Animator.StringToHash(val.ToString());
+            }
+            allHashes[enumType] = enumDict;
         }
     }
 
-    public int GetHash(T variable)
+    public int GetHash<T>(T variable) where T : Enum
     {
-        if (hashes.TryGetValue(variable, out int hash))
+        var enumType = typeof(T);
+        if (allHashes.TryGetValue(enumType, out var hashes) && hashes.TryGetValue(variable, out int hash))
         {
             return hash;
         }
