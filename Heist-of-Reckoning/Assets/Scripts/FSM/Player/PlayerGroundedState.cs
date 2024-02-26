@@ -9,6 +9,7 @@ namespace FintieStateMachine
     public class PlayerGroundedState : PlayerState
     {
         private const float dampTime = 0.1f;
+
         public PlayerGroundedState(PlayerStateMachine stateMachine) : base(stateMachine)
         {
 
@@ -37,7 +38,11 @@ namespace FintieStateMachine
             if (moveValue == Vector2.zero)
             {
                 stateMachine.Animator.SetFloat(stateMachine.PlayerAnimatorHashes.GetHash(PlayerParameters.Speed), GroundedStates.Idle, dampTime, deltaTime);
-                return;
+            }
+            else
+            {
+                float walkRun = stateMachine.InputManager.IsRunning ? GroundedStates.Run : GroundedStates.Walk;
+                stateMachine.Animator.SetFloat(stateMachine.PlayerAnimatorHashes.GetHash(PlayerParameters.Speed), walkRun, dampTime, deltaTime);
             }
 
             Vector3 forward = new Vector3(cameraTransform.forward.x, 0f, cameraTransform.forward.z).normalized;
@@ -45,7 +50,6 @@ namespace FintieStateMachine
 
             Vector3 movement = (forward * moveValue.y + right * moveValue.x).normalized;
 
-            stateMachine.Animator.SetFloat(stateMachine.PlayerAnimatorHashes.GetHash(PlayerParameters.Speed), GroundedStates.Walk, dampTime, deltaTime);
 
             if (movement != Vector3.zero)
             {

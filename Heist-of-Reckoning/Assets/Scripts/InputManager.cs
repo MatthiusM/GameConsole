@@ -9,8 +9,14 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
     private Controls controls;
 
     public Action JumpEvent;
+
+    public Action CrouchEvent;
+
+    public Action RunEvent;
     
     public Vector2 MovementValue { get; private set; }
+
+    public bool IsRunning { get; private set; }
 
     private void OnEnable()
     {
@@ -34,11 +40,6 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
 
         Cursor.visible = false;
     }
-
-    void Update()
-    {
-        
-    }
     private void InvokeIfPerformed(Action eventToInvoke, InputAction.CallbackContext context)
     {
         if (!context.performed) { return; }
@@ -58,5 +59,25 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
     public void OnLook(InputAction.CallbackContext context)
     {
         
+    }
+
+    public void OnCrouch(InputAction.CallbackContext context)
+    {
+        InvokeIfPerformed(CrouchEvent, context);
+    }
+
+    public void OnRun(InputAction.CallbackContext context)
+    {
+        switch (context.phase)
+        {
+            case InputActionPhase.Performed:
+                IsRunning = true;
+                RunEvent.Invoke();
+                break;
+            case InputActionPhase.Canceled:
+                IsRunning = false;
+                RunEvent.Invoke();
+                break;
+        }        
     }
 }
