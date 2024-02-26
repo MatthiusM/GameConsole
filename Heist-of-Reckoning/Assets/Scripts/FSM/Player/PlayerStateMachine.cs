@@ -12,15 +12,14 @@ namespace FintieStateMachine
         [field: SerializeField] public Animator Animator { get; private set; }
         public Transform MainCameraTransform { get; private set; }
         public PlayerAnimatorHashes PlayerAnimatorHashes { get; private set; }
-
+        
         [SerializeField, Range(1f, 5f)]
-        private readonly float movementSpeed = 2.5f;
-
+        private float movementSpeed = 2.5f;        
+        
         private float currentSpeed;
 
         [SerializeField, Range(1f, 10f)]
         private float rotationSpeed = 8f;
-
 
         public float Speed
         {
