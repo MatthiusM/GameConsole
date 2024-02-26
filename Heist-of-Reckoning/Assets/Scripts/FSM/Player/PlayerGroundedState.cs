@@ -56,7 +56,7 @@ namespace FintieStateMachine
                 MovementDirection(movement, deltaTime);
             }
 
-            stateMachine.CharacterController.Move(stateMachine.Speed * deltaTime * movement);
+            Move(movement * stateMachine.Speed, deltaTime); 
         }
 
         private void MovementDirection(Vector3 movement, float deltaTime)
