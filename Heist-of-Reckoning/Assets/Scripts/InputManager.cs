@@ -43,7 +43,6 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
     private void InvokeIfPerformed(Action eventToInvoke, InputAction.CallbackContext context)
     {
         if (!context.performed) { return; }
-        Debug.Log("preesed");
         eventToInvoke?.Invoke();
     }
 
