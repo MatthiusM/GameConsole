@@ -19,7 +19,6 @@ namespace FintieStateMachine
 
         protected void Move(Vector3 movement, float deltaTime)
         {
-            Debug.Log(stateMachine.CharacterController.isGrounded);
             if (gravity < 0f && stateMachine.CharacterController.isGrounded)
             {
                 gravity = Physics.gravity.y * deltaTime;
@@ -32,20 +31,18 @@ namespace FintieStateMachine
             stateMachine.CharacterController.Move((movement + (Vector3.up * gravity)) * deltaTime);
         }
 
-        protected bool IsTransitioningToAnimation(int animationHash)
+        protected void UpdateAnimationFloat(int hash, float targetSpeed, float deltaTime, float dampTime = 0.1f)
         {
-            if (stateMachine.Animator.IsInTransition(0))
-            {
-                AnimatorStateInfo nextAnimationStateInfo = stateMachine.Animator.GetNextAnimatorStateInfo(0);
+            float currentSpeed = stateMachine.Animator.GetFloat(hash);
 
-                if (nextAnimationStateInfo.shortNameHash == animationHash)
-                {
-                    return true;
-                }
+            if (Mathf.Abs(currentSpeed - targetSpeed) < Mathf.Epsilon)
+            {
+                return;
             }
 
-            return false;
+            stateMachine.Animator.SetFloat(hash, targetSpeed, dampTime, deltaTime);
         }
+
     }
 }
 

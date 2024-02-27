@@ -13,6 +13,6 @@ namespace PlayerAnimations
     public static class CrouchStates
     {
         public static readonly float Idle = 0f;
-        public static readonly float Walk = 0.5f;
+        public static readonly float Walk = 0.25f;
     }
 }
