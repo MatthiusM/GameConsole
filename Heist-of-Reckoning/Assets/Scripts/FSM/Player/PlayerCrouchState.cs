@@ -1,54 +1,44 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using PlayerAnimations;
+using System;
 
 namespace FintieStateMachine
 {
-    public class PlayerGroundedState : PlayerState
+    public class PlayerCrouchState : PlayerState
     {
         private const float dampTime = 0.1f;
-
-        public PlayerGroundedState(PlayerStateMachine stateMachine) : base(stateMachine)
+        
+        public PlayerCrouchState(PlayerStateMachine stateMachine) : base(stateMachine)
         {
 
         }
 
         public override void Enter()
         {
-            Debug.Log("GroundedState");
-            stateMachine.InputManager.CrouchEvent += OnCrouch;
+            Debug.Log("CrouchState");
+            stateMachine.InputManager.CrouchEvent += CancelCrouch;
+            stateMachine.Animator.Play(stateMachine.PlayerAnimatorHashes.GetHash(PlayerStates.Crouch));
         }
 
         public override void Exit()
         {
-            stateMachine.InputManager.CrouchEvent -= OnCrouch;
-        }
-
-        private void OnCrouch()
-        {
-            stateMachine.SetCurrentState(new PlayerCrouchState(stateMachine));
+            stateMachine.InputManager.CrouchEvent -= CancelCrouch;
         }
 
         public override void Update(float deltaTime)
-        {
-            Movement(deltaTime);
-        }
-
-        private void Movement(float deltaTime)
         {
             Transform cameraTransform = stateMachine.MainCameraTransform;
             Vector2 moveValue = stateMachine.InputManager.MovementValue;
 
             if (moveValue == Vector2.zero)
             {
-                stateMachine.Animator.SetFloat(stateMachine.PlayerAnimatorHashes.GetHash(PlayerParameters.Speed), GroundedStates.Idle, dampTime, deltaTime);
+                stateMachine.Animator.SetFloat(stateMachine.PlayerAnimatorHashes.GetHash(PlayerParameters.Speed), CrouchStates.Idle, dampTime, deltaTime);
             }
             else
             {
-                float walkRun = stateMachine.InputManager.IsRunning ? GroundedStates.Run : GroundedStates.Walk;
-                stateMachine.Animator.SetFloat(stateMachine.PlayerAnimatorHashes.GetHash(PlayerParameters.Speed), walkRun, dampTime, deltaTime);
+                stateMachine.Animator.SetFloat(stateMachine.PlayerAnimatorHashes.GetHash(PlayerParameters.Speed), CrouchStates.Walk, dampTime, deltaTime);
             }
 
             Vector3 forward = new Vector3(cameraTransform.forward.x, 0f, cameraTransform.forward.z).normalized;
@@ -62,13 +52,20 @@ namespace FintieStateMachine
                 MovementDirection(movement, deltaTime);
             }
 
-            Move(movement * stateMachine.WalkSpeed, deltaTime); 
+            Move(movement * stateMachine.CrouchSpeed, deltaTime);
         }
 
         private void MovementDirection(Vector3 movement, float deltaTime)
         {
             stateMachine.transform.rotation = Quaternion.Lerp(stateMachine.transform.rotation, Quaternion.LookRotation(movement), deltaTime * stateMachine.RotationSpeed);
         }
-    }
 
+        private void CancelCrouch()
+        {
+            stateMachine.Animator.Play(stateMachine.PlayerAnimatorHashes.GetHash(PlayerStates.Grounded));
+            stateMachine.SetCurrentState(new PlayerGroundedState(stateMachine));
+        }
+
+    }
 }
+

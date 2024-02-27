@@ -14,19 +14,27 @@ namespace FintieStateMachine
         public PlayerAnimatorHashes PlayerAnimatorHashes { get; private set; }
         
         [SerializeField, Range(1f, 5f)]
-        private float movementSpeed = 2.5f;        
-        
+        private float walkSpeed = 2.5f;
+
+        [SerializeField, Range(0.1f, 1f)]
+        private float crouchSpeed = 0.3f;
+
         private float currentSpeed;
 
         [SerializeField, Range(1f, 10f)]
         private float rotationSpeed = 8f;
 
-        public float Speed
+        public float WalkSpeed
         {
             get => currentSpeed;
             private set => currentSpeed = value;
         }
 
+        public float CrouchSpeed
+        {
+            get => crouchSpeed;
+            private set => crouchSpeed = value;
+        }
 
         public float RotationSpeed
         {
@@ -39,7 +47,7 @@ namespace FintieStateMachine
             MainCameraTransform = Camera.main.transform;
             PlayerAnimatorHashes = new PlayerAnimatorHashes();
             SetCurrentState(new PlayerGroundedState(this));
-            currentSpeed = movementSpeed;
+            currentSpeed = walkSpeed;
         }
 
         private void OnEnable()
@@ -54,24 +62,23 @@ namespace FintieStateMachine
 
         public void AdjustSpeedOverTime()
         {
-            currentSpeed = InputManager.IsRunning ? movementSpeed * 2 : movementSpeed;
-            Debug.Log(InputManager.IsRunning);
+            currentSpeed = InputManager.IsRunning ? walkSpeed * 2 : walkSpeed;
             StartCoroutine(AdjustSpeedCoroutine(currentSpeed, 2f));
         }
 
         private IEnumerator AdjustSpeedCoroutine(float targetSpeed, float duration)
         {
             float time = 0;
-            float startSpeed = Speed;
+            float startSpeed = WalkSpeed;
 
             while (time < duration)
             {
-                Speed = Mathf.Lerp(startSpeed, targetSpeed, time / duration);
+                WalkSpeed = Mathf.Lerp(startSpeed, targetSpeed, time / duration);
                 time += Time.deltaTime;
                 yield return null;
             }
 
-            Speed = targetSpeed;
+            WalkSpeed = targetSpeed;
         }
     }
 }
