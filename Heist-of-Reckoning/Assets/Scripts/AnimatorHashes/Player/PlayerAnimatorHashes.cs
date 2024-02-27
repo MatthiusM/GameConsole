@@ -7,15 +7,13 @@ namespace PlayerAnimations
 {
     public enum PlayerParameters
     {
-        Speed
+        Speed,
+        Posture
     }
 
     public enum PlayerStates
     {
         Grounded,
-        Crouch,
-        CrouchToStand,
-        StandToCrouch
     }
 
     public class PlayerAnimatorHashes : AnimatorHashes

@@ -8,8 +8,6 @@ namespace FintieStateMachine
 {
     public class PlayerGroundedState : PlayerState
     {
-        private const float dampTime = 0.1f;
-
         public PlayerGroundedState(PlayerStateMachine stateMachine) : base(stateMachine)
         {
 
@@ -17,7 +15,6 @@ namespace FintieStateMachine
 
         public override void Enter()
         {
-            Debug.Log("GroundedState");
             stateMachine.InputManager.CrouchEvent += OnCrouch;
         }
 
@@ -28,11 +25,13 @@ namespace FintieStateMachine
 
         private void OnCrouch()
         {
+            if(!stateMachine.CharacterController.isGrounded) { return; }
             stateMachine.SetCurrentState(new PlayerCrouchState(stateMachine));
         }
 
         public override void Update(float deltaTime)
         {
+            UpdateAnimationFloat(stateMachine.PlayerAnimatorHashes.GetHash(PlayerParameters.Posture), 1, deltaTime);
             Movement(deltaTime);
         }
 
@@ -43,12 +42,12 @@ namespace FintieStateMachine
 
             if (moveValue == Vector2.zero)
             {
-                stateMachine.Animator.SetFloat(stateMachine.PlayerAnimatorHashes.GetHash(PlayerParameters.Speed), GroundedStates.Idle, dampTime, deltaTime);
+                UpdateAnimationFloat(stateMachine.PlayerAnimatorHashes.GetHash(PlayerParameters.Speed), GroundedStates.Idle, deltaTime);
             }
             else
             {
                 float walkRun = stateMachine.InputManager.IsRunning ? GroundedStates.Run : GroundedStates.Walk;
-                stateMachine.Animator.SetFloat(stateMachine.PlayerAnimatorHashes.GetHash(PlayerParameters.Speed), walkRun, dampTime, deltaTime);
+                UpdateAnimationFloat(stateMachine.PlayerAnimatorHashes.GetHash(PlayerParameters.Speed), walkRun, deltaTime);
             }
 
             Vector3 forward = new Vector3(cameraTransform.forward.x, 0f, cameraTransform.forward.z).normalized;
