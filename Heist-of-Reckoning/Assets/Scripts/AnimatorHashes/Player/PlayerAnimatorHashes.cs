@@ -12,7 +12,10 @@ namespace PlayerAnimations
 
     public enum PlayerStates
     {
-        Grounded
+        Grounded,
+        Crouch,
+        CrouchToStand,
+        StandToCrouch
     }
 
     public class PlayerAnimatorHashes : AnimatorHashes
