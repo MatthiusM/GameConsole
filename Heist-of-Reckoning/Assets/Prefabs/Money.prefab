@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 629720334368932891}
   - component: {fileID: -3657467772796466240}
   - component: {fileID: -7912515972794856307}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Money
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,5 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f20a02388518624db1a4bcc0e030528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardForce: 500
-  fadeDuration: 2
+  forwardForce: 100
+  despawnDuration: 3
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 128
