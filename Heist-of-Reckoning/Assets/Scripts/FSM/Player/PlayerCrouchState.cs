@@ -4,7 +4,7 @@ using UnityEngine;
 using PlayerAnimations;
 using System;
 
-namespace FintieStateMachine
+namespace FiniteStateMachine
 {
     public class PlayerCrouchState : PlayerState
     {        
