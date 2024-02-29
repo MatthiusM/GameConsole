@@ -15,10 +15,12 @@ public class MoneySpawner : MonoBehaviour
 
     public event Action<float> OnDecreaseMoney;
 
+    public static float MoneyUI;
 
     private void Start()
     {
         StartCoroutine(DecreaseMoneyOverTime());
+        MoneyUI = totalMoney;
     }
 
     private IEnumerator DecreaseMoneyOverTime()
@@ -37,6 +39,7 @@ public class MoneySpawner : MonoBehaviour
     private void DecreaseMoney(float amount)
     {
         totalMoney -= amount;
+        MoneyUI = totalMoney;
         OnDecreaseMoney?.Invoke(amount);
     }
 }
