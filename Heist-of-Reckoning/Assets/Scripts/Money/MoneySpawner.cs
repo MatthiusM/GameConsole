@@ -29,7 +29,7 @@ public class MoneySpawner : MonoBehaviour
             if (characterController.velocity.magnitude > 0.1f)
             {
                 DecreaseMoney(decreaseAmount);
-                moneyObjectPool.MoneyPool.Get();
+                moneyObjectPool.Pool.Get();
             }
         }
     }

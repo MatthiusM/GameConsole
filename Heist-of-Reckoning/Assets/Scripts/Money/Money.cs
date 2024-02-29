@@ -4,7 +4,6 @@ using UnityEngine.Pool;
 
 public class Money : MonoBehaviour
 {
-    [SerializeField] private float forwardForce = 100f;
     [SerializeField] private float despawnDuration = 3f;
 
     private MoneySpawner moneySpawner; 
@@ -40,8 +39,8 @@ public class Money : MonoBehaviour
         }
     }
 
-    public void SetPool(ObjectPool<GameObject> pool)
+    public void SetPool(MoneyObjectPool moneyObjectPool)
     {
-        this.pool = pool;
+        this.pool = moneyObjectPool.Pool;
     }
 }
