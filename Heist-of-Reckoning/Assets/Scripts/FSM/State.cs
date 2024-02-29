@@ -8,7 +8,6 @@ namespace FiniteStateMachine
     public abstract class State
     {
         protected FiniteStateMachine stateMachine;
-
         public State(FiniteStateMachine stateMachine)
         {
             this.stateMachine = stateMachine;
