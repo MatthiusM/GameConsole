@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using PlayerAnimations;
+using FintieStateMachine;
 
-namespace FintieStateMachine
+namespace FiniteStateMachine
 {
     public class PlayerGroundedState : PlayerState
     {
@@ -16,11 +17,18 @@ namespace FintieStateMachine
         public override void Enter()
         {
             stateMachine.InputManager.CrouchEvent += OnCrouch;
+            stateMachine.InputManager.JumpEvent += OnJump;
+        }
+
+        private void OnJump()
+        {
+            stateMachine.SetCurrentState(new PlayerJumpState(stateMachine));
         }
 
         public override void Exit()
         {
             stateMachine.InputManager.CrouchEvent -= OnCrouch;
+            stateMachine.InputManager.JumpEvent -= OnJump;
         }
 
         private void OnCrouch()

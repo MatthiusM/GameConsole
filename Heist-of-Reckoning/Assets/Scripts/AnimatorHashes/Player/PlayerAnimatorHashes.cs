@@ -1,4 +1,4 @@
-using FintieStateMachine;
+using FiniteStateMachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +14,7 @@ namespace PlayerAnimations
     public enum PlayerStates
     {
         Grounded,
+        Jump,
     }
 
     public class PlayerAnimatorHashes : AnimatorHashes

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using PlayerAnimations;
 
-namespace FintieStateMachine
+namespace FiniteStateMachine
 {    public class PlayerStateMachine : FiniteStateMachine
     {
         [field: SerializeField] public InputManager InputManager { get; private set; }

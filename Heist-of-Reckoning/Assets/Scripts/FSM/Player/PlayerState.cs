@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
 
-namespace FintieStateMachine
+namespace FiniteStateMachine
 {
     public abstract class PlayerState : State
     {

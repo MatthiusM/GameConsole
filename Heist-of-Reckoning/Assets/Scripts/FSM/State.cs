@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-namespace FintieStateMachine
+namespace FiniteStateMachine
 {
     public abstract class State
     {
