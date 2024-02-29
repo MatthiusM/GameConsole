@@ -26,7 +26,7 @@ public class MoneySpawner : MonoBehaviour
         while (totalMoney > 0)
         {
             yield return new WaitForSeconds(decreaseInterval);
-            if (characterController.velocity.magnitude > 0.1f && characterController.isGrounded) ;
+            if (characterController.velocity.magnitude > 0.1f && characterController.isGrounded)
             {
                 DecreaseMoney(decreaseAmount);
                 moneyObjectPool.Pool.Get();
