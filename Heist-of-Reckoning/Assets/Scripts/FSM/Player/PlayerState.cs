@@ -27,7 +27,7 @@ namespace FiniteStateMachine
             {
                 gravity += Physics.gravity.y * deltaTime;
             }
-           
+
             stateMachine.CharacterController.Move((movement + (Vector3.up * gravity)) * deltaTime);
         }
 

@@ -17,7 +17,6 @@ namespace FintieStateMachine
 
         public override void Enter()
         {
-            Debug.Log("Jumping");
             Jump();
             stateMachine.Animator.CrossFadeInFixedTime(stateMachine.PlayerAnimatorHashes.GetHash(PlayerStates.Jump), 0.1f);
         }
