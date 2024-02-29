@@ -1,19 +1,28 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class Money : MonoBehaviour
 {
     [SerializeField] private float forwardForce = 100f;
     [SerializeField] private float despawnDuration = 3f;
 
-    [SerializeField] private LayerMask ignoreLayer;
+    private MoneySpawner moneySpawner; 
 
-    private Rigidbody rb;
+    private ObjectPool<GameObject> pool;
 
-    void Start()
+    void Awake()
     {
-        rb = GetComponent<Rigidbody>();
-        rb.AddForce(Camera.main.transform.forward * forwardForce);
+        GameObject spawnMoneyObject = GameObject.FindGameObjectWithTag("MoneySpawner");
+        if (spawnMoneyObject != null)
+        {
+            moneySpawner = spawnMoneyObject.GetComponent<MoneySpawner>();
+        }
+    }
+
+    private void OnEnable()
+    {
+        StartCoroutine(DespawnAfterDelay(despawnDuration * 3));
     }
 
     void OnCollisionEnter(Collision collision)
@@ -25,6 +34,14 @@ public class Money : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
 
-        Destroy(gameObject);
+        if (moneySpawner != null && gameObject.activeSelf)
+        {
+            pool.Release(this.gameObject);
+        }
+    }
+
+    public void SetPool(ObjectPool<GameObject> pool)
+    {
+        this.pool = pool;
     }
 }

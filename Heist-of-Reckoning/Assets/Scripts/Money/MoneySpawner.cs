@@ -1,17 +1,20 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Pool;
 
-public class SpawnMoney : MonoBehaviour
+public class MoneySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject cashPrefab;
-    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private MoneyObjectPool moneyObjectPool;
+    [field: SerializeField] public Transform SpawnPoint {get; private set;}
+
     [SerializeField] private float totalMoney = 100000f;
     [SerializeField] private float decreaseInterval = 5f;
     [SerializeField] private float decreaseAmount = 5000f;
     [SerializeField] private CharacterController characterController;
 
     public event Action<float> OnDecreaseMoney;
+
 
     private void Start()
     {
@@ -23,9 +26,10 @@ public class SpawnMoney : MonoBehaviour
         while (totalMoney > 0)
         {
             yield return new WaitForSeconds(decreaseInterval);
-            if (characterController.velocity.magnitude > 0.1f) 
+            if (characterController.velocity.magnitude > 0.1f)
             {
                 DecreaseMoney(decreaseAmount);
+                moneyObjectPool.MoneyPool.Get();
             }
         }
     }
@@ -34,14 +38,5 @@ public class SpawnMoney : MonoBehaviour
     {
         totalMoney -= amount;
         OnDecreaseMoney?.Invoke(amount);
-        SpawnCash();
-    }
-
-    private void SpawnCash()
-    {
-        if (cashPrefab != null && spawnPoint != null)
-        {
-            Instantiate(cashPrefab, spawnPoint.position, Quaternion.identity);
-        }
     }
 }

@@ -147,8 +147,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f20a02388518624db1a4bcc0e030528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardForce: 100
+  forwardForce: 1
   despawnDuration: 3
-  ignoreLayer:
-    serializedVersion: 2
-    m_Bits: 128
