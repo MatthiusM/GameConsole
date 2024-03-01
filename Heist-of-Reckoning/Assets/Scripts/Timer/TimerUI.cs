@@ -24,7 +24,11 @@ public class TimerUI : MonoBehaviour
 
     void Update()
     {
-        TimerUICount += Time.deltaTime;
+        if(WinTrigger.Won != true)
+        {
+            TimerUICount += Time.deltaTime;
+        }
+        
 
         TimeSpan timeSpan = TimeSpan.FromSeconds(TimerUICount);
 
