@@ -24,7 +24,7 @@ public class TimerUI : MonoBehaviour
 
     void Update()
     {
-        if(WinTrigger.Won != true)
+        if(WinTrigger.Won != true && LoseTrigger.Lost != true)
         {
             TimerUICount += Time.deltaTime;
         }

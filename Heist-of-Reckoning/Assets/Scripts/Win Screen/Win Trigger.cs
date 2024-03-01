@@ -23,6 +23,7 @@ public class WinTrigger : MonoBehaviour
         if (other.CompareTag("Player")) 
         {
             print("IT WAS A PLAYER");
+
             ShowUI();
         }
     }

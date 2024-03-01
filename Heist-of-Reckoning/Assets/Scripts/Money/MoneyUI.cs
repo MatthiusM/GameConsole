@@ -22,6 +22,11 @@ public class MoneyUI : MonoBehaviour
     void Update()
     {
         MoneyUICount = MoneySpawner.MoneyUI;
+
+        if (MoneyUICount <= 0)
+        {
+            MoneyUICount = 0;
+        }
         
         MoneyUIText.text = MoneyUICount.ToString("N0");
     }
