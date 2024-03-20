@@ -1,3 +1,4 @@
+using PoliceAnimation;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,6 +29,7 @@ namespace FiniteStateMachine
 
         public override void Update(float deltaTime)
         {
+            AnimateMovementSpeed(deltaTime);
             SwitchToWander();
         }
 
@@ -37,6 +39,13 @@ namespace FiniteStateMachine
             {
                 stateMachine.SetCurrentState(new PoliceWanderState(stateMachine));
             }
+        }
+
+        void AnimateMovementSpeed(float deltaTime)
+        {
+            float speed = stateMachine.Agent.velocity.magnitude < 0.1f ? 0f : (stateMachine.Running ? 1.0f : 0.5f);
+            int hash = stateMachine.PoliceAnimationHashes.GetHash(PoliceParameters.Speed);
+            UpdateAnimationFloat(hash, speed, deltaTime);
         }
     }
 }

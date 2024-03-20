@@ -538,15 +538,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7024932204051419384, guid: 997d315953c2f944bbfe18e633634cc0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.20618264
+      value: 0.20618267
       objectReference: {fileID: 0}
     - target: {fileID: 7024932204051419384, guid: 997d315953c2f944bbfe18e633634cc0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000003867884
+      value: 0.00000002554948
       objectReference: {fileID: 0}
     - target: {fileID: 7024932204051419384, guid: 997d315953c2f944bbfe18e633634cc0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 8.150022e-10
+      value: -0.000000005383533
       objectReference: {fileID: 0}
     - target: {fileID: 7384577849083346318, guid: 997d315953c2f944bbfe18e633634cc0, type: 3}
       propertyPath: m_Name
@@ -682,10 +682,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4050681262272494165, guid: 3f70eeb6b81bd2f47bd02709f0ad4e49, type: 3}
+      propertyPath: m_Speed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4889323383039730035, guid: 3f70eeb6b81bd2f47bd02709f0ad4e49, type: 3}
       propertyPath: m_Name
       value: Police
       objectReference: {fileID: 0}
+    - target: {fileID: 5083122490508156893, guid: 3f70eeb6b81bd2f47bd02709f0ad4e49, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 83e5f92e3ca349f4eae7d2c425331fff, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
