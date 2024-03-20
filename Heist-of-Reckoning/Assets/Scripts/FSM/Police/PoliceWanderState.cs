@@ -1,28 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace FiniteStateMachine
 {
     public class PoliceWanderState : PoliceState
     {
+
+        Vector3 wanderLocation;
+
         public PoliceWanderState(PoliceStateMachine stateMachine) : base(stateMachine)
         {
+            
         }
 
         public override void Enter()
         {
-            throw new System.NotImplementedException();
+            wanderLocation = stateMachine.LocationManager.GetRandomLocation(stateMachine.transform.position);
+            Move(wanderLocation);
         }
 
         public override void Exit()
         {
-            throw new System.NotImplementedException();
+
         }
 
         public override void Update(float deltaTime)
         {
-            throw new System.NotImplementedException();
+            SwitchToWander();
+        }
+
+        void SwitchToWander()
+        {
+            if (Vector3.Distance(stateMachine.transform.position, wanderLocation) < 0.2f)
+            {
+                stateMachine.SetCurrentState(new PoliceWanderState(stateMachine));
+            }
         }
     }
 }
