@@ -70,7 +70,6 @@ public class PoliceVision : MonoBehaviour
                 if (hit.collider.CompareTag("Player"))
                 {
                     isPlayerDetected = true;
-                    Debug.Log(isPlayerDetected);
                     break;
                 }
             }

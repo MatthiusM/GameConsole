@@ -6,6 +6,8 @@ TagManager:
   tags:
   - MoneySpawner
   - LocationManager
+  - Police
+  - Pistol
   layers:
   - Default
   - TransparentFX
