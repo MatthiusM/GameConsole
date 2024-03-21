@@ -22,6 +22,8 @@ namespace FiniteStateMachine
 
         public PoliceVision PoliceVision { get; private set; }
 
+        public PoliceCollision PoliceCollision { get; private set; }
+
         public bool Running { get; private set; } = false;
 
         void Start()
@@ -29,6 +31,7 @@ namespace FiniteStateMachine
             Agent = GetComponent<NavMeshAgent>();
             Animator = GetComponent<Animator>();
             PoliceVision = GetComponent<PoliceVision>();
+            PoliceCollision = GetComponent<PoliceCollision>();
             LocationManager = FindChildWithTag(this.gameObject, "LocationManager").GetComponent<LocationManager>();
             PoliceAnimationHashes = new PoliceAnimatorHashes();
 

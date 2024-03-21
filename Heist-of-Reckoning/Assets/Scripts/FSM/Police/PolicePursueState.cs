@@ -1,4 +1,5 @@
 using PoliceAnimation;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,17 +20,25 @@ namespace FiniteStateMachine
             Move(wanderLocation);
 
             stateMachine.SetRunning(true);
+
+            stateMachine.PoliceCollision.onPlayerEnterTrigger += SwitchToShoot;
         }
 
         public override void Exit()
         {
             stateMachine.SetRunning(false);
+            stateMachine.PoliceCollision.onPlayerEnterTrigger -= SwitchToShoot;
         }
 
         public override void Update(float deltaTime)
         {
             SwitchToPursue();
             AnimateMovementSpeed(deltaTime);
+        }
+
+        private void SwitchToShoot()
+        {
+            stateMachine.SetCurrentState(new PoliceShootState(stateMachine));
         }
 
         void SwitchToPursue()
