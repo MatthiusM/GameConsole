@@ -780,6 +780,7 @@ GameObject:
   - component: {fileID: 5083122490508156893}
   - component: {fileID: 4050681262272494165}
   - component: {fileID: 1349180680904393187}
+  - component: {fileID: 806191042184982457}
   m_Layer: 7
   m_Name: Police
   m_TagString: Untagged
@@ -802,7 +803,7 @@ Transform:
   - {fileID: 3413183893806159675}
   - {fileID: 8052351446717596475}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &5083122490508156893
 Animator:
@@ -814,7 +815,7 @@ Animator:
   m_GameObject: {fileID: 4889323383039730035}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 897b34267f422c1499700402763d096e, type: 3}
-  m_Controller: {fileID: 9100000, guid: 3ed6a4ec809a6ef48b382b3285002327, type: 2}
+  m_Controller: {fileID: 9100000, guid: 83e5f92e3ca349f4eae7d2c425331fff, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -835,7 +836,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.25
-  m_Speed: 3.5
+  m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -859,6 +860,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc620fd14296ee342aabd1a0e5c97760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &806191042184982457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4889323383039730035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56fda1a0570c9f94bad1e96ce347d9a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visionRange: 10
+  fieldOfViewAngle: 30
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  heightOffset: 1
 --- !u!1 &4891761335347245664
 GameObject:
   m_ObjectHideFlags: 0
