@@ -17,12 +17,15 @@ namespace FiniteStateMachine
 
         public PoliceAnimatorHashes PoliceAnimationHashes { get; private set; }
 
+        public PoliceVision PoliceVision { get; private set; }
+
         public bool Running { get; private set; } = false;
 
         void Start()
         {
             Agent = GetComponent<NavMeshAgent>();
             Animator = GetComponent<Animator>();
+            PoliceVision = GetComponent<PoliceVision>();
             LocationManager = GameObject.FindGameObjectWithTag("LocationManager").GetComponent<LocationManager>();
             PoliceAnimationHashes = new PoliceAnimatorHashes();
 
