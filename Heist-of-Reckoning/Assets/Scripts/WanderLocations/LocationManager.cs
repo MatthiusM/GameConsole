@@ -7,6 +7,8 @@ public class LocationManager : MonoBehaviour
     private Vector3[] locations; 
     public float minDistance = 5f;
 
+    public static Vector3 PlayerPosition => FindPlayerPosition();
+
     void Awake()
     {
         locations = new Vector3[transform.childCount];
@@ -35,4 +37,18 @@ public class LocationManager : MonoBehaviour
 
         return randomLocation;
     }
+
+    private static Vector3 FindPlayerPosition()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player == null)
+        {
+            Debug.LogError("Player GameObject not found in the scene.");
+            return Vector3.zero;
+        }
+
+        return player.transform.position;
+    }
+
 }
