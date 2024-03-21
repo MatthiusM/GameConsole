@@ -28,6 +28,7 @@ namespace FiniteStateMachine
         {
             stateMachine.SetRunning(false);
             stateMachine.PoliceCollision.onPlayerEnterTrigger -= SwitchToShoot;
+            stateMachine.Agent.ResetPath();
         }
 
         public override void Update(float deltaTime)

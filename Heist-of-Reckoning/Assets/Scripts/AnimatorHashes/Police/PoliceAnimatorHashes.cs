@@ -12,6 +12,7 @@ namespace PoliceAnimation {
     public enum PoliceStates
     {
         Grounded,
+        Shooting
     }
 
     public class PoliceAnimatorHashes : AnimatorHashes

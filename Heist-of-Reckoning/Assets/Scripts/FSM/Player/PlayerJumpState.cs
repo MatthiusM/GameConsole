@@ -23,7 +23,7 @@ namespace FintieStateMachine
 
         private void Jump()
         {
-            stateMachine.CharacterController.Move(Vector3.up * jumpForce * Time.deltaTime);
+            stateMachine.CharacterController.Move(jumpForce * Time.deltaTime * Vector3.up);
 
         }
 
