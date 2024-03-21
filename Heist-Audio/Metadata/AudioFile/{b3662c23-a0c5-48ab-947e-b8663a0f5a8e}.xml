@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{b3662c23-a0c5-48ab-947e-b8663a0f5a8e}">
+		<property name="assetPath">
+			<value>Shooting/435411__moosegravy__side-by-side-multiple-shooters.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>5.1200000000000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{01198c01-a473-4c2f-9965-9a6ec4d0daa5}</destination>
+		</relationship>
+	</object>
+</objects>
