@@ -1,18 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PoliceCollision : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Action onPlayerEnterTrigger;
+    public Action onPlayerExitTrigger;
+
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.CompareTag("Player"))
+        {
+            onPlayerEnterTrigger?.Invoke();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit(Collider other)
     {
-        
+        if (other.gameObject.CompareTag("Player"))
+        {
+            onPlayerExitTrigger?.Invoke();
+        }
     }
 }
