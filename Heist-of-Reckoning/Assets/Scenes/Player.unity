@@ -1241,15 +1241,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7024932204051419384, guid: 997d315953c2f944bbfe18e633634cc0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.20618264
+      value: 0.20618267
       objectReference: {fileID: 0}
     - target: {fileID: 7024932204051419384, guid: 997d315953c2f944bbfe18e633634cc0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000003867884
+      value: 0.00000002554948
       objectReference: {fileID: 0}
     - target: {fileID: 7024932204051419384, guid: 997d315953c2f944bbfe18e633634cc0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 8.150022e-10
+      value: -0.000000005383533
       objectReference: {fileID: 0}
     - target: {fileID: 7262478461660398073, guid: 997d315953c2f944bbfe18e633634cc0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1600,14 +1600,6 @@ PrefabInstance:
     - target: {fileID: 4889323383039730035, guid: 3f70eeb6b81bd2f47bd02709f0ad4e49, type: 3}
       propertyPath: m_Name
       value: Police
-      objectReference: {fileID: 0}
-    - target: {fileID: 4889323383039730035, guid: 3f70eeb6b81bd2f47bd02709f0ad4e49, type: 3}
-      propertyPath: m_TagString
-      value: Police
-      objectReference: {fileID: 0}
-    - target: {fileID: 6528135926916210016, guid: 3f70eeb6b81bd2f47bd02709f0ad4e49, type: 3}
-      propertyPath: m_TagString
-      value: Pistol
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

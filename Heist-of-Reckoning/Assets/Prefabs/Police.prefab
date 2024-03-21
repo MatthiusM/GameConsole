@@ -785,9 +785,10 @@ GameObject:
   - component: {fileID: 2153547885886075133}
   - component: {fileID: 3372247325010383106}
   - component: {fileID: 1926017336388483329}
+  - component: {fileID: 4920756137418297201}
   m_Layer: 7
   m_Name: Police
-  m_TagString: Untagged
+  m_TagString: Police
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -944,6 +945,25 @@ MonoBehaviour:
   prefab: {fileID: 3531178148108591792, guid: e91facc83b580a544b97a36ff5cd8d0a, type: 3}
   spawn: {fileID: 1055658026407421278}
   policeAnimationEvents: {fileID: 3372247325010383106}
+--- !u!114 &4920756137418297201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4889323383039730035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4499c830f2b7ac49b4faaeb61032c7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootSoundEvent:
+    Guid:
+      Data1: 145397829
+      Data2: 1311539518
+      Data3: 1464830860
+      Data4: -811431537
+    Path: event:/Shooting
 --- !u!1 &4891761335347245664
 GameObject:
   m_ObjectHideFlags: 0
