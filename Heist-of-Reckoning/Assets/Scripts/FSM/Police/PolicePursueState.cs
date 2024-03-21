@@ -1,3 +1,4 @@
+using PoliceAnimation;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,23 +7,44 @@ namespace FiniteStateMachine
 {
     public class PolicePursueState : PoliceState
     {
+        Vector3 wanderLocation;
+
         public PolicePursueState(PoliceStateMachine stateMachine) : base(stateMachine)
         {
         }
 
         public override void Enter()
         {
-            throw new System.NotImplementedException();
+            wanderLocation = LocationManager.PlayerPosition;
+            Move(wanderLocation);
+
+            stateMachine.SetRunning(true);
         }
 
         public override void Exit()
         {
-            throw new System.NotImplementedException();
+            stateMachine.SetRunning(false);
         }
 
         public override void Update(float deltaTime)
         {
-            throw new System.NotImplementedException();
+            SwitchToPursue();
+            AnimateMovementSpeed(deltaTime);
+        }
+
+        void SwitchToPursue()
+        {
+            if (Vector3.Distance(stateMachine.transform.position, wanderLocation) < 0.2f)
+            {
+                stateMachine.SetCurrentState(new PolicePursueState(stateMachine));
+            }
+        }
+
+        void AnimateMovementSpeed(float deltaTime)
+        {
+            float speed = stateMachine.Agent.velocity.magnitude < 0.1f ? 0f : (stateMachine.Running ? 1.0f : 0.5f);
+            int hash = stateMachine.PoliceAnimationHashes.GetHash(PoliceParameters.Speed);
+            UpdateAnimationFloat(hash, speed, deltaTime);
         }
     }
 }
