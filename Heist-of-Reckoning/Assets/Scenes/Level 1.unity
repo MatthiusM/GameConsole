@@ -83310,11 +83310,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7024932204051419384, guid: 997d315953c2f944bbfe18e633634cc0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.12852426
+      value: -0.12852424
       objectReference: {fileID: 0}
     - target: {fileID: 7024932204051419384, guid: 997d315953c2f944bbfe18e633634cc0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.027081354
+      value: 0.027081352
       objectReference: {fileID: 0}
     - target: {fileID: 7384577849083346318, guid: 997d315953c2f944bbfe18e633634cc0, type: 3}
       propertyPath: m_Name
@@ -102370,10 +102370,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 4726050182162141146}
   m_HandleRect: {fileID: 0}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: -0
   m_MaxValue: 100
   m_WholeNumbers: 1
-  m_Value: 4
+  m_Value: -0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
