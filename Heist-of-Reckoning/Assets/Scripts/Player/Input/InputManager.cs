@@ -4,80 +4,102 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InputManager : MonoBehaviour, Controls.IPlayerActions
+public class InputManager : MonoBehaviour
 {
-    private Controls controls;
+    enum ActionName
+    {
+        Jump,
+        Move,
+        Crouch,
+        Run
+    }
 
     public Action JumpEvent;
-
     public Action CrouchEvent;
-
     public Action RunEvent;
-    
     public Vector2 MovementValue { get; private set; }
-
     public bool IsRunning { get; private set; }
+
+    private PlayerInput playerInput;
+
+    private void Awake()
+    {
+        playerInput = GetComponent<PlayerInput>();
+    }
 
     private void OnEnable()
     {
-        if (controls == null)
-        {
-            controls = new Controls();
-            controls.Player.SetCallbacks(this);
-        }
-
-        controls.Player.Enable();
+        playerInput.onActionTriggered += OnActionTriggered;
     }
 
     private void OnDisable()
     {
-        controls.Player.Disable();
+        playerInput.onActionTriggered -= OnActionTriggered;
     }
 
-    void Start()
+    private void OnActionTriggered(InputAction.CallbackContext context)
     {
-        Cursor.lockState = CursorLockMode.Locked;
-
-        Cursor.visible = false;
+        if (Enum.TryParse(context.action.name, true, out ActionName actionName))
+        {
+            switch (actionName)
+            {
+                case ActionName.Jump:
+                    HandleJump(context);
+                    break;
+                case ActionName.Move:
+                    HandleMove(context);
+                    break;
+                case ActionName.Crouch:
+                    HandleCrouch(context);
+                    break;
+                case ActionName.Run:
+                    HandleRun(context);
+                    break;
+            }
+        }
     }
-    private void InvokeIfPerformed(Action eventToInvoke, InputAction.CallbackContext context)
-    {
-        if (!context.performed) { return; }
-        eventToInvoke?.Invoke();
-    }
 
-    public void OnJump(InputAction.CallbackContext context)
+    private void HandleJump(InputAction.CallbackContext context)
     {
         InvokeIfPerformed(JumpEvent, context);
     }
 
-    public void OnMove(InputAction.CallbackContext context)
+    private void HandleMove(InputAction.CallbackContext context)
     {
         MovementValue = context.ReadValue<Vector2>();
     }
 
-    public void OnLook(InputAction.CallbackContext context)
-    {
-        
-    }
-
-    public void OnCrouch(InputAction.CallbackContext context)
+    private void HandleCrouch(InputAction.CallbackContext context)
     {
         InvokeIfPerformed(CrouchEvent, context);
     }
 
-    public void OnRun(InputAction.CallbackContext context)
+    private void HandleRun(InputAction.CallbackContext context)
     {
         switch (context.phase)
         {
             case InputActionPhase.Performed:
                 IsRunning = true;
-                RunEvent.Invoke();
+                RunEvent?.Invoke();
                 break;
             case InputActionPhase.Canceled:
                 IsRunning = false;
-                RunEvent.Invoke();
+                RunEvent?.Invoke();
                 break;
-        }        
+        }
+    }
+
+    private void InvokeIfPerformed(Action eventToInvoke, InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            eventToInvoke?.Invoke();
+        }
+    }
+
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }
