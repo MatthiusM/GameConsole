@@ -40,7 +40,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8756154845718327490}
-  - component: {fileID: 466377689876053669}
   - component: {fileID: 6990803018990597004}
   m_Layer: 0
   m_Name: MoneySpawner
@@ -64,24 +63,6 @@ Transform:
   m_Father: {fileID: 1704889344967878184}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &466377689876053669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 91700512242463321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be424cfe86da26643932b1c339a60345, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moneyObjectPool: {fileID: 6990803018990597004}
-  <SpawnPoint>k__BackingField: {fileID: 1908424525175649110}
-  totalMoney: 100000
-  decreaseInterval: 1
-  decreaseAmount: 500
-  characterController: {fileID: 5460207572479886023}
 --- !u!114 &6990803018990597004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,7 +386,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1020439114890103443}
-  m_LocalRotation: {x: 0.17050211, y: 1e-45, z: -0, w: 0.98535734}
+  m_LocalRotation: {x: 0.16870548, y: -0.14266817, z: 0.024686702, w: 0.97497433}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -922,7 +903,7 @@ GameObject:
   - component: {fileID: 1618085459826574301}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -934,8 +915,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2979482084108729688}
-  m_LocalRotation: {x: 0.18834989, y: -0.00000003272365, z: 0.00000000627582, w: 0.98210204}
-  m_LocalPosition: {x: 0, y: 2.5, z: -3}
+  m_LocalRotation: {x: 0.18636517, y: -0.14219685, z: 0.027270857, w: 0.9717533}
+  m_LocalPosition: {x: 0.8595754, y: 2.5, z: -2.8742182}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -981,7 +962,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1096,7 +1077,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3008452779632974114}
-  m_LocalRotation: {x: 0.20618267, y: 0.00000002554948, z: -0.000000005383533, w: 0.97851354}
+  m_LocalRotation: {x: 0.20401002, y: -0.14167726, z: 0.029852828, w: 0.96820265}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1883,7 +1864,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5980806568762216374}
-  m_LocalRotation: {x: 0.18834987, y: -0, z: -0, w: 0.98210204}
+  m_LocalRotation: {x: 0.18636519, y: -0.14219683, z: 0.027270842, w: 0.9717533}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2076,7 +2057,7 @@ GameObject:
   - component: {fileID: 5774354793989053116}
   - component: {fileID: 1860976242027893594}
   - component: {fileID: 7264729667637159056}
-  - component: {fileID: 5431364386457644052}
+  - component: {fileID: 5942129577158818376}
   m_Layer: 7
   m_Name: FreeLook Camera
   m_TagString: Untagged
@@ -2092,7 +2073,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6962018518662547730}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.5, z: -3}
+  m_LocalPosition: {x: 0.8595754, y: 2.5, z: -2.8742182}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2237,7 +2218,7 @@ MonoBehaviour:
   m_Damping: 0
   m_DampingWhenOccluded: 0
   m_OptimalTargetDistance: 0
---- !u!114 &5431364386457644052
+--- !u!114 &5942129577158818376
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2246,13 +2227,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 6962018518662547730}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb7194dc27b9df64c8beca7482ee8e0d, type: 3}
+  m_Script: {fileID: 11500000, guid: f03536832a8332348b97fdad47d48d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerIndex: -1
-  AutoEnableInputs: 1
-  XYAxis: {fileID: -6239370482866932948, guid: 639af423365ae1a46bdc34a95d2abdb0, type: 3}
-  ZAxis: {fileID: 0}
+  horizontal:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  vertical:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!1 &7384577849083346318
 GameObject:
   m_ObjectHideFlags: 0
@@ -2266,6 +2261,7 @@ GameObject:
   - component: {fileID: 1995079940897833636}
   - component: {fileID: 5460207572479886023}
   - component: {fileID: 5820619062155449664}
+  - component: {fileID: 4582547628335863701}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -2309,6 +2305,7 @@ MonoBehaviour:
   <InputManager>k__BackingField: {fileID: 1995079940897833636}
   <CharacterController>k__BackingField: {fileID: 5460207572479886023}
   <Animator>k__BackingField: {fileID: 5820619062155449664}
+  <CameraTransform>k__BackingField: {fileID: 2708838390083886791}
   walkSpeed: 2.5
   crouchSpeed: 0.24
   rotationSpeed: 8
@@ -2371,6 +2368,36 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4582547628335863701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7384577849083346318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 639af423365ae1a46bdc34a95d2abdb0, type: 3}
+  m_NotificationBehavior: 3
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 766954268155241190}
 --- !u!1 &7503486049845292665
 GameObject:
   m_ObjectHideFlags: 0

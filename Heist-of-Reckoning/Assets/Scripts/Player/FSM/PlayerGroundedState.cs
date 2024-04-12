@@ -45,7 +45,7 @@ namespace FiniteStateMachine
 
         private void Movement(float deltaTime)
         {
-            Transform cameraTransform = stateMachine.MainCameraTransform;
+            Transform cameraTransform = stateMachine.CameraTransform;
             Vector2 moveValue = stateMachine.InputManager.MovementValue;
 
             if (moveValue == Vector2.zero)

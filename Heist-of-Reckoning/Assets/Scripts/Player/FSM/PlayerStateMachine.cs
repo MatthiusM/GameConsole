@@ -10,7 +10,7 @@ namespace FiniteStateMachine
         [field: SerializeField] public InputManager InputManager { get; private set; }
         [field: SerializeField] public CharacterController CharacterController { get; private set; }
         [field: SerializeField] public Animator Animator { get; private set; }
-        public Transform MainCameraTransform { get; private set; }
+        [field: SerializeField] public Transform CameraTransform { get; private set; }
         public PlayerAnimatorHashes PlayerAnimatorHashes { get; private set; }
         
         [SerializeField, Range(1f, 5f)]
@@ -44,7 +44,6 @@ namespace FiniteStateMachine
 
         private void Start()
         {
-            MainCameraTransform = Camera.main.transform;
             PlayerAnimatorHashes = new PlayerAnimatorHashes();
             SetCurrentState(new PlayerGroundedState(this));
             currentSpeed = walkSpeed;
