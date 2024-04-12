@@ -208,7 +208,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""9a582206-4963-473c-9883-8e0a26e35ead"",
+                    ""id"": ""fa2e7454-19c3-4d64-b9e2-1e795d8267a4"",
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
