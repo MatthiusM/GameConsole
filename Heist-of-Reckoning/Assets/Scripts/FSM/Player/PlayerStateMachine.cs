@@ -12,7 +12,9 @@ namespace FiniteStateMachine
         [field: SerializeField] public Animator Animator { get; private set; }
         [field: SerializeField] public Transform CameraTransform { get; private set; }
         public PlayerAnimatorHashes PlayerAnimatorHashes { get; private set; }
-        
+
+        public bool IsPolice { get; set; } = false;
+
         [SerializeField, Range(1f, 5f)]
         private float walkSpeed = 2.5f;
 
@@ -47,6 +49,9 @@ namespace FiniteStateMachine
             PlayerAnimatorHashes = new PlayerAnimatorHashes();
             SetCurrentState(new PlayerGroundedState(this));
             currentSpeed = walkSpeed;
+
+            Debug.Log("Is the character a police officer? " + IsPolice);
+
         }
 
         private void OnEnable()
@@ -81,5 +86,3 @@ namespace FiniteStateMachine
         }
     }
 }
-
-

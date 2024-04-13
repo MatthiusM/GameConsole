@@ -1,58 +1,107 @@
 using Cinemachine;
+using FiniteStateMachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class MultiplayerManager : MonoBehaviour
 {
     private PlayerInputManager playerInputManager;
-    [SerializeField] private LayerMask[] playerLayers; // Layers to exclude from culling, except for the current player
+    [SerializeField] private LayerMask[] cameraLayers;
     private int playerCount = 0;
 
     void Awake()
     {
         playerInputManager = GetComponent<PlayerInputManager>();
+
+        GameObject playerGameObject = GameObject.Find("Player");
+        if (playerGameObject == null)
+        {
+            Debug.LogError("Player GameObject not found in the scene.");
+            return;
+        }
+
+        SetupPlayerComponents(playerGameObject);
     }
 
     private void OnEnable()
     {
-        playerInputManager.onPlayerJoined += AddPlayer;
+        playerInputManager.onPlayerJoined += ConfigurePlayer;
     }
 
     private void OnDisable()
     {
-        playerInputManager.onPlayerJoined -= AddPlayer;
+        playerInputManager.onPlayerJoined -= ConfigurePlayer;
     }
 
-    public void AddPlayer(PlayerInput player)
+
+    private void SetupPlayerComponents(GameObject playerGameObject)
     {
-        if (playerCount >= playerLayers.Length)
+        if (!playerGameObject.TryGetComponent(out PlayerInput playerInput))
+        {
+            Debug.LogError("PlayerInput component not found on the Player GameObject.");
+            return;
+        }
+
+        ConfigurePlayer(playerInput);
+
+        if (!playerGameObject.TryGetComponent(out PlayerStateMachine playerStateMachine))
+        {
+            Debug.LogError("PlayerStateMachine component not found on the Player GameObject.");
+            return;
+        }
+    }
+
+
+    private void ConfigurePlayer(PlayerInput player)
+    {
+        if (playerCount >= cameraLayers.Length)
         {
             Debug.LogError("Maximum number of players exceeded.");
             return;
         }
 
-        Transform playerTransform = player.gameObject.transform;
-        int layerToAdd = (int)Mathf.Log(playerLayers[playerCount].value, 2);
+        ConfigureCamera(player);
+        ConfigureInput(player);
 
-        Debug.Log($"Assigning player {playerCount + 1} to layer {layerToAdd}");
-
-        CinemachineFreeLook freeLookCam = playerTransform.GetComponentInChildren<CinemachineFreeLook>();
-        freeLookCam.gameObject.layer = layerToAdd;
-
-        Camera playerCamera = playerTransform.GetComponentInChildren<Camera>();
-
-        playerCamera.cullingMask = ~0; 
-        for (int i = 0; i < playerLayers.Length; i++)
+        if (playerCount > 0)
         {
-            if (i != playerCount) 
-                playerCamera.cullingMask &= ~(1 << (int)Mathf.Log(playerLayers[i].value, 2));
+            if (player.gameObject.TryGetComponent(out PlayerStateMachine playerStateMachine))
+            {
+                playerStateMachine.IsPolice = true;
+            }
         }
 
+        playerCount++;
+    }
+
+    private void ConfigureCamera(PlayerInput player)
+    {
+        Transform playerTransform = player.gameObject.transform;
+        CinemachineFreeLook freeLookCam = playerTransform.GetComponentInChildren<CinemachineFreeLook>();
+        Camera playerCamera = playerTransform.GetComponentInChildren<Camera>();
+        int layerToAdd = (int)Mathf.Log(cameraLayers[playerCount].value, 2);
+
+        freeLookCam.gameObject.layer = layerToAdd;
+        playerCamera.cullingMask = ~0;
+
+        for (int i = 0; i < cameraLayers.Length; i++)
+        {
+            if (i != playerCount)
+            {
+                int layerNumberToExclude = (int)Mathf.Log(cameraLayers[i].value, 2);
+                playerCamera.cullingMask &= ~(1 << layerNumberToExclude);
+            }
+        }
+
+        Debug.Log($"Camera for player {playerCount + 1} set: CinemachineFreeLook layer {layerToAdd}, Camera cullingMask modified.");
+    }
+
+    private void ConfigureInput(PlayerInput player)
+    {
+        Transform playerTransform = player.gameObject.transform;
         CinemachineInputHandler inputHandler = playerTransform.GetComponentInChildren<CinemachineInputHandler>();
         inputHandler.horizontal = player.actions.FindAction("Look");
 
-        Debug.Log($"Player {playerCount + 1} components set: CinemachineFreeLook layer {layerToAdd}, Camera cullingMask modified, CinemachineInputHandler action set");
-
-        playerCount++;
+        Debug.Log($"Input for player {playerCount + 1} configured: CinemachineInputHandler action set.");
     }
 }
