@@ -1793,7 +1793,9 @@ MonoBehaviour:
   policeMesh: {fileID: 4300000, guid: 897b34267f422c1499700402763d096e, type: 3}
   robberMaterial: {fileID: 2100000, guid: 640873c036094c74abbb1cfef8656986, type: 2}
   policeMaterial: {fileID: 2100000, guid: 62e25ef75a2216f418d06453c9ad15cb, type: 2}
-  robberObjects: []
+  robberObjects:
+  - {fileID: 4130552518962274025}
+  - {fileID: 4940128475709231986}
   policeObjects: []
 --- !u!1 &5461525854323672351
 GameObject:
