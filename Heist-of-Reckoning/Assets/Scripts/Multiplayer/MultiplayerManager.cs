@@ -25,7 +25,7 @@ public class MultiplayerManager : MonoBehaviour
 
     private void OnEnable()
     {
-        playerInputManager.onPlayerJoined += ConfigurePlayer;
+        playerInputManager.onPlayerJoined += ConfigurePlayer; //line 28
     }
 
     private void OnDisable()

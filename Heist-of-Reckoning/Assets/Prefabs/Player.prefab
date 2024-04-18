@@ -386,7 +386,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1020439114890103443}
-  m_LocalRotation: {x: 0.16870548, y: -0.14266817, z: 0.024686702, w: 0.97497433}
+  m_LocalRotation: {x: 0.16870548, y: -0.14266816, z: 0.0246867, w: 0.97497433}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -915,8 +915,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2979482084108729688}
-  m_LocalRotation: {x: 0.18636517, y: -0.14219685, z: 0.027270857, w: 0.9717533}
-  m_LocalPosition: {x: 0.8595754, y: 2.5, z: -2.8742182}
+  m_LocalRotation: {x: 0.18636519, y: -0.14219685, z: 0.027270855, w: 0.9717533}
+  m_LocalPosition: {x: 0.8595753, y: 2.5, z: -2.8742182}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1077,7 +1077,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3008452779632974114}
-  m_LocalRotation: {x: 0.20401002, y: -0.14167726, z: 0.029852828, w: 0.96820265}
+  m_LocalRotation: {x: 0.20401002, y: -0.14167725, z: 0.029852822, w: 0.96820265}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1885,7 +1885,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5980806568762216374}
-  m_LocalRotation: {x: 0.18636519, y: -0.14219683, z: 0.027270842, w: 0.9717533}
+  m_LocalRotation: {x: 0.18636519, y: -0.14219682, z: 0.027270842, w: 0.9717533}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2094,7 +2094,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6962018518662547730}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.8595754, y: 2.5, z: -2.8742182}
+  m_LocalPosition: {x: 0.8595753, y: 2.5, z: -2.8742182}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2151,7 +2151,7 @@ MonoBehaviour:
     m_DecelTime: 0.1
     m_InputAxisName: 
     m_InputAxisValue: 0
-    m_InvertInput: 0
+    m_InvertInput: 1
     m_MinValue: 0
     m_MaxValue: 1
     m_Wrap: 0
@@ -2175,7 +2175,7 @@ MonoBehaviour:
     m_DecelTime: 0.1
     m_InputAxisName: 
     m_InputAxisValue: 0
-    m_InvertInput: 1
+    m_InvertInput: 0
     m_MinValue: -180
     m_MaxValue: 180
     m_Wrap: 1
@@ -2413,7 +2413,35 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6276436d-1eb4-493d-b7c8-e0630091fa63
+    m_ActionName: Player/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0ee4bcdb-adcc-42f5-b859-7e294577c595
+    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: aba61c81-dc11-4848-b6cf-3414adc430c9
+    m_ActionName: Player/Look[/Mouse/delta]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 53498a3a-da11-4aed-8ea3-7e7a4c93eea7
+    m_ActionName: Player/Crouch[/Keyboard/ctrl]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 56ec2286-b695-4b3a-9837-dfb237131d8e
+    m_ActionName: Player/Run[/Keyboard/shift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7d667a0b-f8be-4c48-9c07-b17c2d2260f8
+    m_ActionName: Player/Aim[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: db17c08f-5874-4ed3-83e5-d68e578fcb5c
+    m_ActionName: Player/Shoot[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
