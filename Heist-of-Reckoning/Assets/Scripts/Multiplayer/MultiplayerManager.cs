@@ -33,7 +33,6 @@ public class MultiplayerManager : MonoBehaviour
         playerInputManager.onPlayerJoined -= ConfigurePlayer;
     }
 
-
     private void SetupPlayerComponents(GameObject playerGameObject)
     {
         if (!playerGameObject.TryGetComponent(out PlayerInput playerInput))
@@ -43,14 +42,7 @@ public class MultiplayerManager : MonoBehaviour
         }
 
         ConfigurePlayer(playerInput);
-
-        if (!playerGameObject.TryGetComponent(out PlayerStateMachine playerStateMachine))
-        {
-            Debug.LogError("PlayerStateMachine component not found on the Player GameObject.");
-            return;
-        }
     }
-
 
     private void ConfigurePlayer(PlayerInput player)
     {
@@ -63,11 +55,17 @@ public class MultiplayerManager : MonoBehaviour
         ConfigureCamera(player);
         ConfigureInput(player);
 
-        if (playerCount > 0)
+        if (playerCount == 0)
         {
             if (player.gameObject.TryGetComponent(out PlayerStateMachine playerStateMachine))
             {
                 playerStateMachine.IsPolice = true;
+            }
+
+            CharacterSwitcher characterSwitcher = player.gameObject.GetComponentInChildren<CharacterSwitcher>();
+            if (characterSwitcher)
+            {
+                characterSwitcher.SwitchToPolice();
             }
         }
 

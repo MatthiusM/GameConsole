@@ -18,17 +18,25 @@ namespace FiniteStateMachine
         {
             stateMachine.InputManager.CrouchEvent += OnCrouch;
             stateMachine.InputManager.JumpEvent += OnJump;
-        }
-
-        private void OnJump()
-        {
-            stateMachine.SetCurrentState(new PlayerJumpState(stateMachine));
+            stateMachine.InputManager.AimEvent += OnAim;
         }
 
         public override void Exit()
         {
             stateMachine.InputManager.CrouchEvent -= OnCrouch;
             stateMachine.InputManager.JumpEvent -= OnJump;
+            stateMachine.InputManager.AimEvent -= OnAim;
+        }
+
+        private void OnAim()
+        {
+            if(!stateMachine.IsPolice) { return; }
+            stateMachine.SetCurrentState(new PlayerAimState(stateMachine));
+        }
+
+        private void OnJump()
+        {
+            stateMachine.SetCurrentState(new PlayerJumpState(stateMachine));
         }
 
         private void OnCrouch()
