@@ -23,11 +23,6 @@ public class CharacterSwitcher : MonoBehaviour
         characterRenderer = GetComponent<SkinnedMeshRenderer>();
     }
 
-    private void Start()
-    {
-        SwitchCharacter(policeMesh, policeMaterial, policeObjects, robberObjects);
-    }
-
     public void SwitchToRobber()
     {
         SwitchCharacter(robberMesh, robberMaterial, robberObjects, policeObjects);

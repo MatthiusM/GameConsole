@@ -11,12 +11,16 @@ public class InputManager : MonoBehaviour
         Jump,
         Move,
         Crouch,
-        Run
+        Run,
+        Aim,
+        Shoot
     }
 
     public Action JumpEvent;
     public Action CrouchEvent;
     public Action RunEvent;
+    public Action AimEvent;
+    public Action ShootEvent;
     public Vector2 MovementValue { get; private set; }
     public bool IsRunning { get; private set; }
 
@@ -55,6 +59,12 @@ public class InputManager : MonoBehaviour
                 case ActionName.Run:
                     HandleRun(context);
                     break;
+                case ActionName.Aim:
+                    HandleAim(context);
+                    break;
+                case ActionName.Shoot:
+                    HandleShoot(context);  
+                    break;
             }
         }
     }
@@ -72,6 +82,16 @@ public class InputManager : MonoBehaviour
     private void HandleCrouch(InputAction.CallbackContext context)
     {
         InvokeIfPerformed(CrouchEvent, context);
+    }
+
+    private void HandleAim(InputAction.CallbackContext context)
+    {
+        InvokeIfPerformed(AimEvent, context);
+    }
+
+    private void HandleShoot(InputAction.CallbackContext context)
+    {
+        InvokeIfPerformed(ShootEvent, context);
     }
 
     private void HandleRun(InputAction.CallbackContext context)
