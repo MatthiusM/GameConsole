@@ -16,6 +16,8 @@ namespace FiniteStateMachine
 
         public override void Enter()
         {
+            stateMachine.Animator.CrossFadeInFixedTime(stateMachine.PlayerAnimatorHashes.GetHash(PlayerStates.Grounded), 0.1f);
+
             stateMachine.InputManager.CrouchEvent += OnCrouch;
             stateMachine.InputManager.JumpEvent += OnJump;
             stateMachine.InputManager.AimEvent += OnAim;

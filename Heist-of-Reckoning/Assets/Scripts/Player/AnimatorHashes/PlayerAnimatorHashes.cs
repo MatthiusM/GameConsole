@@ -15,6 +15,8 @@ namespace PlayerAnimations
     {
         Grounded,
         Jump,
+        PistolIdle,
+        Shooting
     }
 
     public class PlayerAnimatorHashes : AnimatorHashes
