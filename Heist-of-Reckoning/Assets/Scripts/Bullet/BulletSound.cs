@@ -6,15 +6,10 @@ using FMODUnity;
 
 public class BulletSound : MonoBehaviour
 {
-    PoliceAnimationEvents policeAnimationEvents;
+    [SerializeField] PoliceAnimationEvents policeAnimationEvents;
 
     [SerializeField]
     private EventReference shootSoundEvent;
-
-    private void Awake()
-    {
-        policeAnimationEvents = GetComponent<PoliceAnimationEvents>();
-    }
 
     private void OnEnable()
     {

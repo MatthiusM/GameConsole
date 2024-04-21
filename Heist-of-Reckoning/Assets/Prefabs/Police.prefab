@@ -809,7 +809,7 @@ Transform:
   - {fileID: 8052351446717596475}
   - {fileID: 1903024128277727429}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &5083122490508156893
 Animator:
@@ -957,6 +957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4499c830f2b7ac49b4faaeb61032c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  policeAnimationEvents: {fileID: 3372247325010383106}
   shootSoundEvent:
     Guid:
       Data1: 145397829
