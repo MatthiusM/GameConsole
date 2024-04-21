@@ -25,7 +25,7 @@ public class MultiplayerManager : MonoBehaviour
 
     private void OnEnable()
     {
-        playerInputManager.onPlayerJoined += ConfigurePlayer; //line 28
+        playerInputManager.onPlayerJoined += ConfigurePlayer; 
     }
 
     private void OnDisable()
@@ -41,7 +41,7 @@ public class MultiplayerManager : MonoBehaviour
             return;
         }
 
-        ConfigurePlayer(playerInput);
+        //ConfigurePlayer(playerInput);
     }
 
     private void ConfigurePlayer(PlayerInput player)
@@ -55,7 +55,7 @@ public class MultiplayerManager : MonoBehaviour
         ConfigureCamera(player);
         ConfigureInput(player);
 
-        if (playerCount == 0)
+        if (playerCount > 0)
         {
             if (player.gameObject.TryGetComponent(out PlayerStateMachine playerStateMachine))
             {
@@ -66,6 +66,14 @@ public class MultiplayerManager : MonoBehaviour
             if (characterSwitcher)
             {
                 characterSwitcher.SwitchToPolice();
+            }
+        }
+        else
+        {
+            CharacterSwitcher characterSwitcher = player.gameObject.GetComponentInChildren<CharacterSwitcher>();
+            if (characterSwitcher)
+            {
+                characterSwitcher.SwitchToRobber();
             }
         }
 

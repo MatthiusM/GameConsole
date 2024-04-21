@@ -377,25 +377,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2231313606324703925, guid: 997d315953c2f944bbfe18e633634cc0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.14219682
+      value: -0.1421968
       objectReference: {fileID: 0}
     - target: {fileID: 2708838390083886791, guid: 997d315953c2f944bbfe18e633634cc0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.14219685
+      value: -0.14219683
       objectReference: {fileID: 0}
+    - target: {fileID: 7014246747275103700, guid: 997d315953c2f944bbfe18e633634cc0, type: 3}
+      propertyPath: policeAnimationEvents
+      value: 
+      objectReference: {fileID: 2043109263}
     - target: {fileID: 7024932204051419384, guid: 997d315953c2f944bbfe18e633634cc0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.14167725
+      value: -0.14167722
       objectReference: {fileID: 0}
     - target: {fileID: 7024932204051419384, guid: 997d315953c2f944bbfe18e633634cc0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.029852822
+      value: 0.029852815
       objectReference: {fileID: 0}
     - target: {fileID: 7384577849083346318, guid: 997d315953c2f944bbfe18e633634cc0, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9160939386219134527, guid: 997d315953c2f944bbfe18e633634cc0, type: 3}
+      propertyPath: robberMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 89b7eafcf2e62814eaaa9e605bd41849, type: 2}
+    m_RemovedComponents:
+    - {fileID: 3830367604389350573, guid: 997d315953c2f944bbfe18e633634cc0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -405,6 +414,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7384577849083346318, guid: 997d315953c2f944bbfe18e633634cc0, type: 3}
   m_PrefabInstance: {fileID: 2043109261}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2043109263 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6087791118083516912, guid: 997d315953c2f944bbfe18e633634cc0, type: 3}
+  m_PrefabInstance: {fileID: 2043109261}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043109262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 969d3633e8d40e5418159ecc919590f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7266063304836489728
 PrefabInstance:
   m_ObjectHideFlags: 0

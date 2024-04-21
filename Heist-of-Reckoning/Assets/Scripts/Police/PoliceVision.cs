@@ -1,3 +1,4 @@
+using FiniteStateMachine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -67,7 +68,7 @@ public class PoliceVision : MonoBehaviour
         {
             if (Physics.Raycast(origin, rayDirection, out RaycastHit hit, visionRange, playerMask))
             {
-                if (hit.collider.CompareTag("Player"))
+                if (hit.collider.CompareTag("Player") && !hit.collider.gameObject.GetComponent<PlayerStateMachine>().IsPolice)
                 {
                     isPlayerDetected = true;
                     break;
