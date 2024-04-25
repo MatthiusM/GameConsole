@@ -805,13 +805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   policeAnimationEvents: {fileID: 0}
-  shootSoundEvent:
-    Guid:
-      Data1: 145397829
-      Data2: 1311539518
-      Data3: 1464830860
-      Data4: -811431537
-    Path: event:/Shooting
+  shootSound: {fileID: 8300000, guid: 6f44bad3f98fbcf41bba5640072154fe, type: 3}
 --- !u!1 &7622259781053739100
 GameObject:
   m_ObjectHideFlags: 0

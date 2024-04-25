@@ -1,15 +1,20 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using FMODUnity; 
 
 public class BulletSound : MonoBehaviour
 {
-    [SerializeField] PoliceAnimationEvents policeAnimationEvents;
+    [SerializeField] private PoliceAnimationEvents policeAnimationEvents;
+    [SerializeField] private AudioClip shootSound; 
+    private AudioSource audioSource;
 
-    [SerializeField]
-    private EventReference shootSoundEvent;
+    private void Awake()
+    {
+        if (!TryGetComponent<AudioSource>(out audioSource))
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+    }
 
     private void OnEnable()
     {
@@ -23,6 +28,10 @@ public class BulletSound : MonoBehaviour
 
     private void PlayShootSound()
     {
-        RuntimeManager.PlayOneShot(shootSoundEvent, transform.position);
+        if (shootSound == null)
+        {
+            return;
+        }
+        audioSource.PlayOneShot(shootSound);
     }
 }

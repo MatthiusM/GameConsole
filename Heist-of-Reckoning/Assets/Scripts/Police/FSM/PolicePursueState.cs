@@ -39,6 +39,7 @@ namespace FiniteStateMachine
 
         private void SwitchToShoot()
         {
+            Debug.Log("shoot");
             stateMachine.SetCurrentState(new PoliceShootState(stateMachine));
         }
 

@@ -386,7 +386,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1020439114890103443}
-  m_LocalRotation: {x: 0.16870548, y: -0.14266816, z: 0.0246867, w: 0.97497433}
+  m_LocalRotation: {x: 0.16451652, y: -0.25879288, z: 0.044780444, w: 0.95076567}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -901,7 +901,7 @@ GameObject:
   - component: {fileID: 2708838390083886791}
   - component: {fileID: 766954268155241190}
   - component: {fileID: 8071096178489057751}
-  - component: {fileID: 1618085459826574301}
+  - component: {fileID: 8148530448957430440}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Untagged
@@ -916,8 +916,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2979482084108729688}
-  m_LocalRotation: {x: 0.18636519, y: -0.14219683, z: 0.027270855, w: 0.9717533}
-  m_LocalPosition: {x: 0.8595753, y: 2.5, z: -2.8742182}
+  m_LocalRotation: {x: 0.18173775, y: -0.2579379, z: 0.04946797, w: 0.9476246}
+  m_LocalPosition: {x: 1.520511, y: 2.5, z: -2.5861256}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1009,19 +1009,14 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1618085459826574301
-MonoBehaviour:
+--- !u!81 &8148530448957430440
+AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2979482084108729688}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attenuationObject: {fileID: 0}
 --- !u!1 &2985101840508694105
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,7 +1073,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3008452779632974114}
-  m_LocalRotation: {x: 0.20401002, y: -0.14167722, z: 0.029852815, w: 0.96820265}
+  m_LocalRotation: {x: 0.19894446, y: -0.25699544, z: 0.054151524, w: 0.94416213}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1792,7 +1787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   robberMesh: {fileID: 4300018, guid: 0c526fcf08992a0468ec17df08f9c855, type: 3}
   policeMesh: {fileID: 4300000, guid: 897b34267f422c1499700402763d096e, type: 3}
-  robberMaterial: {fileID: 2100000, guid: 640873c036094c74abbb1cfef8656986, type: 2}
+  robberMaterial: {fileID: 2100000, guid: 89b7eafcf2e62814eaaa9e605bd41849, type: 2}
   policeMaterial: {fileID: 2100000, guid: 62e25ef75a2216f418d06453c9ad15cb, type: 2}
   robberObjects:
   - {fileID: 4130552518962274025}
@@ -1887,7 +1882,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5980806568762216374}
-  m_LocalRotation: {x: 0.18636519, y: -0.1421968, z: 0.027270842, w: 0.9717533}
+  m_LocalRotation: {x: 0.18173775, y: -0.25793794, z: 0.049467955, w: 0.9476246}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2096,7 +2091,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6962018518662547730}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.8595753, y: 2.5, z: -2.8742182}
+  m_LocalPosition: {x: 1.520511, y: 2.5, z: -2.5861256}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3198,6 +3193,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 2732643865737869018, guid: f362b490f40397648b2df6209be6619f, type: 3}
+      propertyPath: policeAnimationEvents
+      value: 
+      objectReference: {fileID: 6087791118083516912}
     - target: {fileID: 7114935452942659339, guid: f362b490f40397648b2df6209be6619f, type: 3}
       propertyPath: m_Name
       value: Pistol
