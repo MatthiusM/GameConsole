@@ -2,18 +2,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Unity.VisualScripting;
+using System;
 
-public class SceneLoader : MonoBehaviour, IPointerClickHandler
+public class SceneLoader : BaseButton
 {
-    public string sceneToLoad;
+    [SerializeField] 
+    private string sceneToLoad;
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        
-        LoadScene();
-    }
-
-    void LoadScene()
+    protected override void OnClickButton()
     {
         SceneManager.LoadScene(sceneToLoad);
     }

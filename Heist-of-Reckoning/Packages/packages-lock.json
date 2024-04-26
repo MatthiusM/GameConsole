@@ -87,6 +87,14 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.unity.inputsystem.ps4": {
+      "version": "file:C:/Users/S21125730/Desktop/com.unity.inputsystem.ps4-0.1.6-pre.tgz",
+      "depth": 0,
+      "source": "local-tarball",
+      "dependencies": {
+        "com.unity.inputsystem": "1.6.1"
+      }
+    },
     "com.unity.performance.profile-analyzer": {
       "version": "1.2.2",
       "depth": 1,

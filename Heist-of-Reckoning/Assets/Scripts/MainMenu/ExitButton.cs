@@ -1,14 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class ExitButton : MonoBehaviour, UnityEngine.EventSystems.IPointerClickHandler
+public class ExitButton : BaseButton
 {
-    public void OnPointerClick(UnityEngine.EventSystems.PointerEventData eventData)
-    {
-        ExitGame();
-    }
-
-    void ExitGame()
+    protected override void OnClickButton()
     {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
