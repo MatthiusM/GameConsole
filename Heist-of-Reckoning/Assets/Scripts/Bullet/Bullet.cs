@@ -18,29 +18,16 @@ public class Bullet : MonoBehaviour
     {
         if (gunShotParticlePrefab != null)
         {
-            GameObject particleInstance = Instantiate(gunShotParticlePrefab, transform.position, Quaternion.identity);
-
-            if (particleInstance.TryGetComponent(out ParticleSystem gunShotParticle))
-            {
-                gunShotParticle.Play();
-                StartCoroutine(StopParticleSystemAfterDelay(gunShotParticle, 0.1f));
-            }
+            Instantiate(gunShotParticlePrefab, transform.position, Quaternion.identity);
         }
 
         rb.AddForce(transform.forward * forwardForce);
     }
 
-    private IEnumerator StopParticleSystemAfterDelay(ParticleSystem particleSystem, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        particleSystem.Stop();
-
-        Destroy(particleSystem.gameObject, particleSystem.main.startLifetime.constantMax);
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Police") || other.CompareTag("Pistol")) { return; }
+        if (other.CompareTag("Police") || other.CompareTag("Pistol") || other.CompareTag("Bullet")) { return; }
+        Debug.Log(other.name);
         pool.Release(this.gameObject);
     }
 
