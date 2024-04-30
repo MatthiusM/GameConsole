@@ -8,10 +8,12 @@ public class Bullet : MonoBehaviour
     private Rigidbody rb;
     [SerializeField] private GameObject gunShotParticlePrefab;
     private readonly float forwardForce = 500f;
+    private Transform playerTransform;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform; 
     }
 
     private void OnEnable()
@@ -21,7 +23,11 @@ public class Bullet : MonoBehaviour
             Instantiate(gunShotParticlePrefab, transform.position, Quaternion.identity);
         }
 
-        rb.AddForce(transform.forward * forwardForce);
+        if (playerTransform != null)
+        {
+            Vector3 directionToPlayer = (playerTransform.position - transform.position).normalized;
+            rb.AddForce(directionToPlayer * forwardForce); 
+        }
     }
 
     private void OnTriggerEnter(Collider other)
