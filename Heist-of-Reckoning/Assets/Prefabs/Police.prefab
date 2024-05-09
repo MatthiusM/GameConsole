@@ -809,7 +809,7 @@ Transform:
   - {fileID: 8052351446717596475}
   - {fileID: 1903024128277727429}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &5083122490508156893
 Animator:
@@ -864,7 +864,7 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -957,13 +957,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4499c830f2b7ac49b4faaeb61032c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootSoundEvent:
-    Guid:
-      Data1: 145397829
-      Data2: 1311539518
-      Data3: 1464830860
-      Data4: -811431537
-    Path: event:/Shooting
+  policeAnimationEvents: {fileID: 3372247325010383106}
+  shootSound: {fileID: 8300000, guid: 6f44bad3f98fbcf41bba5640072154fe, type: 3}
 --- !u!1 &4891761335347245664
 GameObject:
   m_ObjectHideFlags: 0
@@ -1950,10 +1945,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.013000488
       objectReference: {fileID: 0}
+    - target: {fileID: 2732643865737869018, guid: f362b490f40397648b2df6209be6619f, type: 3}
+      propertyPath: policeAnimationEvents
+      value: 
+      objectReference: {fileID: 3372247325010383106}
     - target: {fileID: 7114935452942659339, guid: f362b490f40397648b2df6209be6619f, type: 3}
       propertyPath: m_Name
       value: Pistol
       objectReference: {fileID: 0}
+    - target: {fileID: 7910963677694197232, guid: f362b490f40397648b2df6209be6619f, type: 3}
+      propertyPath: policeAnimationEvents
+      value: 
+      objectReference: {fileID: 3372247325010383106}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1977,6 +1980,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3844769718843411965}
     m_Modifications:
+    - target: {fileID: 2793670583286758227, guid: 948aa2e209b8425488bd728595e967fa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 2793670583286758227, guid: 948aa2e209b8425488bd728595e967fa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2793670583286758227, guid: 948aa2e209b8425488bd728595e967fa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244417488427566032, guid: 948aa2e209b8425488bd728595e967fa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244417488427566032, guid: 948aa2e209b8425488bd728595e967fa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244417488427566032, guid: 948aa2e209b8425488bd728595e967fa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.46
+      objectReference: {fileID: 0}
     - target: {fileID: 5511698371899333022, guid: 948aa2e209b8425488bd728595e967fa, type: 3}
       propertyPath: m_Name
       value: LocationManager
@@ -2026,7 +2053,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7542836447883491831, guid: 948aa2e209b8425488bd728595e967fa, type: 3}
+    - {fileID: 1333478293784446167, guid: 948aa2e209b8425488bd728595e967fa, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 948aa2e209b8425488bd728595e967fa, type: 3}

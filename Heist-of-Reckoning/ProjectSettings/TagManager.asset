@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - MoneySpawner
+  - Pistol
+  - LocationManager
+  - Police
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -14,8 +18,8 @@ TagManager:
   - UI
   - Money
   - Player
-  - 
-  - 
+  - Camera1
+  - Camera2
   - 
   - 
   - 

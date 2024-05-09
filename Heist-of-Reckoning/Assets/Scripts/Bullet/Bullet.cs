@@ -8,39 +8,32 @@ public class Bullet : MonoBehaviour
     private Rigidbody rb;
     [SerializeField] private GameObject gunShotParticlePrefab;
     private readonly float forwardForce = 500f;
+    private Transform playerTransform;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform; 
     }
 
     private void OnEnable()
     {
         if (gunShotParticlePrefab != null)
         {
-            GameObject particleInstance = Instantiate(gunShotParticlePrefab, transform.position, Quaternion.identity);
-
-            if (particleInstance.TryGetComponent(out ParticleSystem gunShotParticle))
-            {
-                gunShotParticle.Play();
-                StartCoroutine(StopParticleSystemAfterDelay(gunShotParticle, 0.1f));
-            }
+            Instantiate(gunShotParticlePrefab, transform.position, Quaternion.identity);
         }
 
-        rb.AddForce(transform.forward * forwardForce);
-    }
-
-    private IEnumerator StopParticleSystemAfterDelay(ParticleSystem particleSystem, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        particleSystem.Stop();
-
-        Destroy(particleSystem.gameObject, particleSystem.main.startLifetime.constantMax);
+        if (playerTransform != null)
+        {
+            Vector3 directionToPlayer = (playerTransform.position - transform.position).normalized;
+            rb.AddForce(directionToPlayer * forwardForce); 
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Police") || other.CompareTag("Pistol")) { return; }
+        if (other.CompareTag("Police") || other.CompareTag("Pistol") || other.CompareTag("Bullet")) { return; }
+        Debug.Log(other.name);
         pool.Release(this.gameObject);
     }
 

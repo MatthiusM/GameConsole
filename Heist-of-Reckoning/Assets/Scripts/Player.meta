@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Heist-of-Reckoning/Assets/Scripts/Player.meta
+guid: a35869a65175a5743bbc5070fefb562c
+folderAsset: yes
+DefaultImporter:
+========
+guid: 825215d9d3c8f4443b9e65a33d0f5f65
+NativeFormatImporter:
+>>>>>>>> 3b77fb9 (Fixed camera look around):Heist-of-Reckoning/Assets/Animations/Player/Shooting.anim.meta
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
