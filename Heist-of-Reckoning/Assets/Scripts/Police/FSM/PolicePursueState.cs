@@ -1,53 +1,67 @@
 using PoliceAnimation;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace FiniteStateMachine
 {
     public class PolicePursueState : PoliceState
     {
-        Vector3 wanderLocation;
+        Vector3 targetLocation;
+        float detectionRadius = 10.0f; 
 
         public PolicePursueState(PoliceStateMachine stateMachine) : base(stateMachine)
         {
         }
-
         public override void Enter()
         {
-            wanderLocation = LocationManager.PlayerPosition;
-            Move(wanderLocation);
+            targetLocation = LocationManager.PlayerPosition;
+            Move(targetLocation);
 
             stateMachine.SetRunning(true);
 
             stateMachine.PoliceCollision.onPlayerEnterTrigger += SwitchToShoot;
+            stateMachine.StartCoroutine(DetectionAndPursuitCheck());
         }
-
         public override void Exit()
         {
             stateMachine.SetRunning(false);
             stateMachine.PoliceCollision.onPlayerEnterTrigger -= SwitchToShoot;
             stateMachine.Agent.ResetPath();
+            stateMachine.StopAllCoroutines(); 
         }
-
         public override void Update(float deltaTime)
         {
-            SwitchToPursue();
             AnimateMovementSpeed(deltaTime);
+        }
+
+        IEnumerator DetectionAndPursuitCheck()
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(3); 
+                Collider[] hits = Physics.OverlapSphere(stateMachine.transform.position, detectionRadius);
+                bool playerDetected = false;
+                foreach (Collider hit in hits)
+                {
+                    if (hit.CompareTag("Player"))
+                    {
+                        playerDetected = true;
+                        break;
+                    }
+                }
+                if (!playerDetected)
+                {
+                    Debug.Log("Player lost, switching from Pursue to Wander state.");
+                    stateMachine.SetCurrentState(new PoliceWanderState(stateMachine));
+                    break;
+                }
+            }
         }
 
         private void SwitchToShoot()
         {
             stateMachine.SetCurrentState(new PoliceShootState(stateMachine));
-        }
-
-        void SwitchToPursue()
-        {
-            if (Vector3.Distance(stateMachine.transform.position, wanderLocation) < 0.2f)
-            {
-                stateMachine.SetCurrentState(new PolicePursueState(stateMachine));
-            }
         }
 
         void AnimateMovementSpeed(float deltaTime)
@@ -58,4 +72,3 @@ namespace FiniteStateMachine
         }
     }
 }
-

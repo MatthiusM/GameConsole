@@ -71,9 +71,13 @@ MonoBehaviour:
     <outputParams />\r\n      <localParams />\r\n    </SubbehaviorNode>\r\n  </runtimeInfo>\r\n 
     <editorInfo>\r\n    <SubbehaviorNode id=\"29\">\r\n      <_data>\r\n        <data
     breakpoint=\"0\" selected=\"False\" position=\"662.5 606.25\" name=\"Wander\"
-    description=\"\" cardinality=\"-1\" hasParent=\"False\">\r\n          <SubbehaviorNode
+    description=\"\" cardinality=\"-1\" hasParent=\"False\">\r\n          <BehaviorTree
     id=\"29\" />\r\n        </data>\r\n      </_data>\r\n    </SubbehaviorNode>\r\n 
-    </editorInfo>\r\n</BehaviorBricks>"
+    </editorInfo>\r\n  <runtimeInfo>\r\n    <BehaviorTree id=\"29\" nextId=\"1\">\r\n     
+    <inputParams />\r\n      <outputParams />\r\n      <localParams />\r\n    </BehaviorTree>\r\n 
+    </runtimeInfo>\r\n  <editorInfo>\r\n    <BehaviorTree id=\"29\" _removeIfClosed=\"False\">\r\n     
+    <_rootList />\r\n      <_nodes>\r\n        <nodes />\r\n      </_nodes>\r\n   
+    </BehaviorTree>\r\n  </editorInfo>\r\n</BehaviorBricks>"
   zoom: 0.8
   subslist:
   - {fileID: 11400000, guid: 8adfddffa70852a45ba1b64354494e3c, type: 2}

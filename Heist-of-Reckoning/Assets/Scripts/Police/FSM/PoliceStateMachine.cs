@@ -26,6 +26,12 @@ namespace FiniteStateMachine
 
         public bool Running { get; private set; } = false;
 
+        private PoliceState currentState;
+        public PoliceState CurrentState
+        {
+            get { return currentState; }
+            private set { currentState = value; }
+        }
         void Start()
         {
             Agent = GetComponent<NavMeshAgent>();
